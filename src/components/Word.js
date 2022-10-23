@@ -45,6 +45,7 @@ export default function RandomWord() {
         <button type="button" onClick={() => handleClick()}>
           Generate Word
         </button>
+        <select></select>
       </form>
     </div>
   );
