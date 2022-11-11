@@ -40,24 +40,12 @@ export default function RandomWord() {
   return (
     <div>
       <form>
-        <select>
-
-          
-
-          
-          Source language
-
-
-          
-          </select>
+        <select>Source language</select>
         <input onChange={e => setWord(e.target.value)} value={word}></input>
         <button type="button" onClick={() => handleClick()}>
           Generate Word
         </button>
-        <select>
-          Target Language
-          
-          </select>
+        <select>Target Language</select>
       </form>
     </div>
   );
