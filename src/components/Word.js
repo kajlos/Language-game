@@ -31,6 +31,7 @@ export default function RandomWord() {
     'UK',
     'ZH',
   ];
+
   const handleClick = async () => {
     let res = await fetch('https://api.api-ninjas.com/v1/randomword');
     let data = await res.json();
