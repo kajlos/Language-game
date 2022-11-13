@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 export default function RandomWord() {
   const [word, setWord] = useState('');
+  
   const languages = [
     'BG',
     'CS',
