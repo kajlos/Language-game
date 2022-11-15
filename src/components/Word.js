@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 
 export default function RandomWord() {
-
   const [word, setWord] = useState('');
-  
+
   const languages = [
     'BG',
     'CS',
@@ -45,9 +44,11 @@ export default function RandomWord() {
       <form>
         <select>Source language</select>
         <input onChange={e => setWord(e.target.value)} value={word}></input>
+
         <button type="button" onClick={() => handleClick()}>
           Generate Word
         </button>
+
         <select>Target Language</select>
       </form>
     </div>
