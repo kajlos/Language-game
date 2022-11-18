@@ -11,7 +11,6 @@ function App() {
   };
   return (
     <>
-      hi
       <Word />
       <Answer />
     </>

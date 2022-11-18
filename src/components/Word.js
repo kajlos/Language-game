@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 
 export default function RandomWord() {
   const [word, setWord] = useState('');
-
+  const [sourceLanguage, setSourceLanguage] = useState('EN');
+  const [targetLanguage, setTargetLanguage] = useState('EN');
   const languages = [
     'BG',
     'CS',
@@ -43,15 +44,32 @@ export default function RandomWord() {
   return (
     <div>
       <form>
-        <select>Source language</select>
+        <label htmlFor="source">Source Language</label>
+        <select
+          id="source"
+          value={sourceLanguage}
+          onChange={e => setSourceLanguage(e.target.value)}
+        >
+          {languages.map(language => {
+            return <option key={language}>{language}</option>;
+          })}
+        </select>
 
         <input onChange={e => setWord(e.target.value)} value={word}></input>
 
         <button type="button" onClick={() => handleClick()}>
           Generate Word
         </button>
-
-        <select>Target Language</select>
+        <label htmlFor="target">Target Language</label>
+        <select
+          id="target"
+          value={targetLanguage}
+          onChange={e => setTargetLanguage(e.target.value)}
+        >
+          {languages.map(language => {
+            return <option key={language}>{language}</option>;
+          })}
+        </select>
       </form>
     </div>
   );
