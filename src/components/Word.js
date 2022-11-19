@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function RandomWord() {
+export default function RandomWord({ translate }) {
   const [word, setWord] = useState('');
   const [sourceLanguage, setSourceLanguage] = useState('EN');
   const [targetLanguage, setTargetLanguage] = useState('EN');
@@ -59,6 +59,9 @@ export default function RandomWord() {
 
         <button type="button" onClick={() => handleClick()}>
           Generate Word
+        </button>
+        <button type="button" onClick={() => translate(sourceLanguage, word, targetLanguage)}>
+          Translate
         </button>
         <label htmlFor="target">Target Language</label>
         <select
