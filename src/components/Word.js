@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import styles from '../styles/Word.module.css';
 export default function RandomWord({ translate }) {
   const [word, setWord] = useState('');
   const [sourceLanguage, setSourceLanguage] = useState('EN');
@@ -44,7 +44,9 @@ export default function RandomWord({ translate }) {
   return (
     <div>
       <form>
-        <label htmlFor="source">Source Language</label>
+        <label htmlFor="source" className={styles.s}>
+          Source Language
+        </label>
         <select
           id="source"
           value={sourceLanguage}
