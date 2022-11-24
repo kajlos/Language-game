@@ -7,8 +7,6 @@ export default function Answer({ answer }) {
     if (el && !inputRefs.current.includes(el)) {
       inputRefs.current.push(el);
     }
-
-    console.log(inputRefs);
   };
   return (
     <div className={styles.container}>
