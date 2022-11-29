@@ -3,6 +3,7 @@ import styles from '../styles/Word.module.css';
 export default function RandomWord({ translate }) {
   const [word, setWord] = useState('');
   const [sourceLanguage, setSourceLanguage] = useState('EN');
+
   const [targetLanguage, setTargetLanguage] = useState('PL');
 
   const languages = [
