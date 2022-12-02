@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import styles from '../styles/Word.module.css';
 export default function RandomWord({ translate }) {
   const [word, setWord] = useState('');
