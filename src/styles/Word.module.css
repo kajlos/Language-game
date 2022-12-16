@@ -11,6 +11,7 @@
   grid-template-columns: 1fr 2fr 1fr;
   width: 100%;
 }
+
 .inputForm > div {
   display: flex;
   flex-direction: column;
