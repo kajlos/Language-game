@@ -11,8 +11,8 @@ export default function Answer({ answer }) {
     }
   };
   return (
-    <div className={styles.container}>
-      <p>Answer: </p>
+    <div className={'container'}>
+      <h2 className={styles.answer}>Answer: </h2>
 
       <div className={styles.inputs}>
         {[...answer].map((char, i) => {

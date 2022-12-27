@@ -4,11 +4,9 @@ import styles from '../styles/Word.module.css';
 
 export default function RandomWord({ translate }) {
   const [word, setWord] = useState('');
-
+  const key = process.env.REACT_APP_NINJA_API;
   const [sourceLanguage, setSourceLanguage] = useState('EN');
-
   const [targetLanguage, setTargetLanguage] = useState('PL');
-
   const languages = [
     'BG',
     'CS',
@@ -38,17 +36,28 @@ export default function RandomWord({ translate }) {
     'UK',
     'ZH',
   ];
-
   const handleClick = async () => {
-    let res = await fetch('https://api.api-ninjas.com/v1/randomword');
+    try {
+      let res = await fetch('https://api.api-ninjas.com/v1/randomword', {
+        headers: {
+          'X-Api-Key': key,
+        },
+      });
+      if (!res.ok) {
+        return res.text().then(text => {
+          throw new Error(text);
+        });
+      }
+      let data = await res.json();
 
-    let data = await res.json();
-
-    setWord(data.word);
+      setWord(data.word);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <div className={styles.container}>
+    <div className={'container'}>
       <form className={styles.inputForm}>
         <div>
           <label htmlFor="source">Source Language</label>
