@@ -12,10 +12,13 @@
   color: white;
   appearance: none;
   border: none;
-  background-color: #444;
+  background-color: #555;
   font-size: 1.5rem;
 }
-
+.inputLetter:disabled {
+  cursor: not-allowed;
+  background-color: #444;
+}
 .answer {
   text-align: center;
   font-weight: 400;
