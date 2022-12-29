@@ -4,13 +4,33 @@ import styles from '../styles/Answer.module.css';
 
 export default function Answer({ answer }) {
   let inputRefs = useRef([]);
-  console.log(answer);
+  inputRefs.current = [];
   const avaiableCharacters = /^[a-zA-Z0-9_.-]*$/;
   const addRef = el => {
     if (el && !inputRefs.current.includes(el)) {
       inputRefs.current.push(el);
     }
+  };
+  const checkAnswer = () => {
     console.log(inputRefs.current);
+    let guess = '';
+    for (let i = 0; i < inputRefs.current.length; i++) {
+      guess += inputRefs.current[i].value;
+    }
+    console.log(guess + ' = guess');
+    console.log(answer + ' = answer');
+    for (let i = 0; i < inputRefs.current.length; i++) {
+      if (answer.at(i) === inputRefs.current[i].value) {
+        inputRefs.current[i].classList.add(styles.correct);
+      } else {
+        inputRefs.current[i].classList.add(styles.incorrect);
+      }
+    }
+    if (guess === answer) {
+      console.log('correct');
+    } else {
+      console.log('incorrect');
+    }
   };
   return (
     <div className={'container'}>
@@ -40,6 +60,9 @@ export default function Answer({ answer }) {
             );
           }
         })}
+      </div>
+      <div>
+        <button onClick={checkAnswer}>Check</button>
       </div>
     </div>
   );

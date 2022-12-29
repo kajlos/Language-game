@@ -12,12 +12,24 @@
   color: white;
   appearance: none;
   border: none;
-  background-color: #555;
+  border-bottom: 3px solid black;
+  background-color: #666;
   font-size: 1.5rem;
+}
+
+.correct {
+  border-bottom: 3px solid green;
+}
+.incorrect {
+  border-bottom: 3px solid red;
 }
 .inputLetter:disabled {
   cursor: not-allowed;
-  background-color: #444;
+  background-color: #555;
+  border-bottom: 3px solid green;
+}
+.inputLetter:focus {
+  outline: none;
 }
 .answer {
   text-align: center;
