@@ -32,6 +32,14 @@ export default function Answer({ answer }) {
       console.log('incorrect');
     }
   };
+  const handleChange = e => {
+    e.target.classList.remove(styles.correct, styles.incorrect);
+    let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
+    let index = notDisabledInputs.indexOf(e.target);
+
+    if (index === notDisabledInputs.length - 1) return;
+    notDisabledInputs[index + 1].focus();
+  };
   return (
     <div className={'container'}>
       <h2 className={styles.answer}>Answer: </h2>
@@ -44,6 +52,7 @@ export default function Answer({ answer }) {
                 ref={addRef}
                 maxLength={1}
                 key={crypto.randomUUID()}
+                onChange={handleChange}
                 className={styles.inputLetter}
               ></input>
             );
@@ -54,7 +63,7 @@ export default function Answer({ answer }) {
                 maxLength={1}
                 key={crypto.randomUUID()}
                 defaultValue={char}
-                className={styles.inputLetter}
+                className={[styles.inputLetter, styles.correct].join(' ')}
                 disabled
               ></input>
             );
