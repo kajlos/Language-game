@@ -36,7 +36,6 @@ export default function Answer({ answer }) {
     e.target.classList.remove(styles.correct, styles.incorrect);
     let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
     let index = notDisabledInputs.indexOf(e.target);
-
     if (index === notDisabledInputs.length - 1) return;
     notDisabledInputs[index + 1].focus();
   };
