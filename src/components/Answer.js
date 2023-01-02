@@ -32,6 +32,7 @@ export default function Answer({ answer }) {
       console.log('incorrect');
     }
   };
+
   const handleChange = e => {
     e.target.classList.remove(styles.correct, styles.incorrect);
     let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
