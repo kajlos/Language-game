@@ -33,12 +33,20 @@ export default function Answer({ answer }) {
     }
   };
 
-  const handleChange = e => {
+  const handleInput = e => {
+    console.log(e);
+    console.log(e.target);
     e.target.classList.remove(styles.correct, styles.incorrect);
     let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
     let index = notDisabledInputs.indexOf(e.target);
-    if (index === notDisabledInputs.length - 1) return;
-    notDisabledInputs[index + 1].focus();
+    if (e.key === 'Backspace') {
+      if (index === 0) return;
+      e.target.value = '';
+      notDisabledInputs[index - 1].focus();
+    } else if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
+      if (index === notDisabledInputs.length - 1) return;
+      notDisabledInputs[index + 1].focus();
+    }
   };
   return (
     <div className={'container'}>
@@ -52,7 +60,7 @@ export default function Answer({ answer }) {
                 ref={addRef}
                 maxLength={1}
                 key={crypto.randomUUID()}
-                onChange={handleChange}
+                onKeyUp={handleInput}
                 className={styles.inputLetter}
               ></input>
             );
