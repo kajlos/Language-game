@@ -34,18 +34,25 @@ export default function Answer({ answer }) {
   };
 
   const handleInput = e => {
-    console.log(e);
-    console.log(e.target);
-    e.target.classList.remove(styles.correct, styles.incorrect);
     let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
     let index = notDisabledInputs.indexOf(e.target);
-    if (e.key === 'Backspace') {
-      if (index === 0) return;
-      e.target.value = '';
-      notDisabledInputs[index - 1].focus();
-    } else if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
+
+    if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
+      e.target.classList.remove(styles.correct, styles.incorrect);
+      e.target.value = e.key;
       if (index === notDisabledInputs.length - 1) return;
       notDisabledInputs[index + 1].focus();
+    } else if (e.key === 'Backspace') {
+      e.target.classList.remove(styles.correct, styles.incorrect);
+      e.target.value = '';
+      if (index === 0) return;
+      notDisabledInputs[index - 1].focus();
+    } else if (e.key === 'ArrowRight') {
+      if (index === notDisabledInputs.length - 1) return;
+      notDisabledInputs[index + 1].focus();
+    } else if (e.key === 'ArrowLeft') {
+      if (index === 0) return;
+      notDisabledInputs[index - 1].focus();
     }
   };
   return (

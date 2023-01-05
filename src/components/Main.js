@@ -8,7 +8,6 @@ function Main() {
       `https://api-free.deepl.com/v2/translate?auth_key=${process.env.REACT_APP_DEEPL_KEY}&source_lang=${source}&text=${word}&target_lang=${target}`
     );
     let sentence = await res.json();
-    console.log(sentence);
     setAnswer(sentence.translations[0].text);
   };
   return (
