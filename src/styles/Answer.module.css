@@ -10,13 +10,15 @@
   height: 50px;
   text-align: center;
   color: white;
-  appearance: none;
   border: none;
   border-bottom: 3px solid black;
   background-color: #666;
   font-size: 1.5rem;
+  caret-color: transparent;
 }
-
+.inputLetter:focus {
+  outline: 2px solid blue;
+}
 .correct {
   border-bottom: 3px solid green;
 }
@@ -27,9 +29,7 @@
   cursor: not-allowed;
   background-color: #555;
 }
-.inputLetter:focus {
-  outline: none;
-}
+
 .answer {
   text-align: center;
   font-weight: 400;

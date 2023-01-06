@@ -36,7 +36,7 @@ export default function Answer({ answer }) {
   const handleInput = e => {
     let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
     let index = notDisabledInputs.indexOf(e.target);
-
+    console.log(e);
     if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
       e.target.classList.remove(styles.correct, styles.incorrect);
       e.target.value = e.key;
@@ -53,8 +53,11 @@ export default function Answer({ answer }) {
     } else if (e.key === 'ArrowLeft') {
       if (index === 0) return;
       notDisabledInputs[index - 1].focus();
+    } else {
+      e.target.value = '';
     }
   };
+
   return (
     <div className={'container'}>
       <h2 className={styles.answer}>Answer: </h2>
