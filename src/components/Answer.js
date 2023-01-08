@@ -88,9 +88,11 @@ export default function Answer({ answer }) {
           }
         })}
       </div>
-      <div>
-        <button onClick={checkAnswer}>Check</button>
-      </div>
+      {answer ? (
+        <div className={styles.checkButtonDiv}>
+          <button onClick={checkAnswer}>Check</button>
+        </div>
+      ) : null}
     </div>
   );
 }
