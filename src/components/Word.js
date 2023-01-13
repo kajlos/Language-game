@@ -7,6 +7,7 @@ export default function RandomWord({ translate }) {
   const key = process.env.REACT_APP_NINJA_API;
   const [sourceLanguage, setSourceLanguage] = useState('EN');
   const [targetLanguage, setTargetLanguage] = useState('PL');
+
   const languages = [
     'BG',
     'CS',
