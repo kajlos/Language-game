@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import useFetch from '../hooks/useFetch';
 
 import styles from '../styles/Word.module.css';
 
@@ -7,7 +8,7 @@ export default function RandomWord({ translate }) {
   const key = process.env.REACT_APP_NINJA_API;
   const [sourceLanguage, setSourceLanguage] = useState('EN');
   const [targetLanguage, setTargetLanguage] = useState('PL');
-
+  let { data, isLoading, error, makeFetch } = useFetch('', {});
   const languages = [
     'BG',
     'CS',
@@ -37,26 +38,15 @@ export default function RandomWord({ translate }) {
     'UK',
     'ZH',
   ];
-  const handleClick = async () => {
-    try {
-      let res = await fetch('https://api.api-ninjas.com/v1/randomword', {
-        headers: {
-          'X-Api-Key': key,
-        },
-      });
-      if (!res.ok) {
-        return res.text().then(text => {
-          throw new Error(text);
-        });
-      }
-      let data = await res.json();
-
-      setWord(data.word);
-    } catch (error) {
-      console.log(error);
-    }
+  const handleClick = () => {
+    makeFetch('https://api.api-ninjas.com/v1/randomword', {
+      headers: {
+        'X-Api-Key': key,
+      },
+    });
+    setWord(data.word);
   };
-
+  console.log(data, isLoading, error);
   return (
     <div className={'container'}>
       <form className={styles.inputForm}>
