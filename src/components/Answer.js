@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 
 import styles from '../styles/Answer.module.css';
 
-export default function Answer({ answer }) {
+export default function Answer({ answer, isLoading }) {
   let inputRefs = useRef([]);
   inputRefs.current = [];
   const avaiableCharacters = /^[a-zA-Z0-9_.-]*$/;
@@ -12,13 +12,6 @@ export default function Answer({ answer }) {
     }
   };
   const checkAnswer = () => {
-    console.log(inputRefs.current);
-    let guess = '';
-    for (let i = 0; i < inputRefs.current.length; i++) {
-      guess += inputRefs.current[i].value;
-    }
-    console.log(guess + ' = guess');
-    console.log(answer + ' = answer');
     for (let i = 0; i < inputRefs.current.length; i++) {
       if (answer.at(i) === inputRefs.current[i].value) {
         inputRefs.current[i].classList.add(styles.correct);
@@ -26,17 +19,11 @@ export default function Answer({ answer }) {
         inputRefs.current[i].classList.add(styles.incorrect);
       }
     }
-    if (guess === answer) {
-      console.log('correct');
-    } else {
-      console.log('incorrect');
-    }
   };
 
   const handleInput = e => {
     let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
     let index = notDisabledInputs.indexOf(e.target);
-    console.log(e);
     if ((e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)) {
       e.target.classList.remove(styles.correct, styles.incorrect);
       e.target.value = e.key;
@@ -61,6 +48,7 @@ export default function Answer({ answer }) {
   return (
     <div className={'container'}>
       <h2 className={styles.answer}>Answer: </h2>
+      {isLoading ? <h2 className={styles.loading}>Loading ...</h2> : null}
 
       <div className={styles.inputs}>
         {[...answer].map(char => {
