@@ -51,7 +51,7 @@ export default function RandomWord({ translate }) {
   return (
     <div className={'container'}>
       <form className={styles.inputForm}>
-        <div>
+        <div className={styles.sourceDiv}>
           <label htmlFor="source">Source Language</label>
           <select
             id="source"
@@ -64,7 +64,7 @@ export default function RandomWord({ translate }) {
           </select>
         </div>
 
-        <div>
+        <div className={styles.inputDiv}>
           <input
             onChange={e => setWord(e.target.value)}
             value={isLoading ? 'Loading...' : word}
@@ -79,7 +79,7 @@ export default function RandomWord({ translate }) {
             </button>
           </div>
         </div>
-        <div>
+        <div className={styles.targetDiv}>
           <label htmlFor="target">Target Language</label>
           <select
             id="target"

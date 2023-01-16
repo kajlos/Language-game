@@ -1,6 +1,6 @@
 .inputForm {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
 }
 
 .inputForm > div {
@@ -17,6 +17,7 @@
 .buttons {
   display: flex;
   width: 100%;
+  gap: 1em;
 }
 .buttons > * {
   flex-basis: 100%;
@@ -26,4 +27,30 @@ button {
 }
 select {
   padding: 0.5rem 1rem;
+}
+.sourceDiv {
+  grid-column: 1/2;
+}
+.targetDiv {
+  grid-column: 2/3;
+  grid-row: 1;
+}
+.inputDiv {
+  margin-top: 1em;
+  grid-column: span 2;
+}
+@media (min-width: 450px) {
+  .inputForm {
+    grid-template-columns: 1fr 2fr 1fr;
+  }
+  .sourceDiv {
+    grid-column: auto;
+  }
+  .targetDiv {
+    grid-column: auto;
+    grid-row: auto;
+  }
+  .inputDiv {
+    grid-column: auto;
+  }
 }
