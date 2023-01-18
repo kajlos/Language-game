@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-
+import { v4 as uuid } from 'uuid';
 import styles from '../styles/Answer.module.css';
 
 export default function Answer({ answer, isLoading }) {
@@ -57,7 +57,7 @@ export default function Answer({ answer, isLoading }) {
               <input
                 ref={addRef}
                 maxLength={1}
-                key={crypto.randomUUID()}
+                key={uuid()}
                 onKeyUp={handleInput}
                 className={styles.inputLetter}
               ></input>
@@ -67,7 +67,7 @@ export default function Answer({ answer, isLoading }) {
               <input
                 ref={addRef}
                 maxLength={1}
-                key={crypto.randomUUID()}
+                key={uuid()}
                 defaultValue={char}
                 className={[styles.inputLetter, styles.correct].join(' ')}
                 disabled
