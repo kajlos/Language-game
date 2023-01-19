@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Language-game/static/css/main.64666ec7.css",
+    "main.js": "/Language-game/static/js/main.90ed5dc8.js",
+    "index.html": "/Language-game/index.html",
+    "main.64666ec7.css.map": "/Language-game/static/css/main.64666ec7.css.map",
+    "main.90ed5dc8.js.map": "/Language-game/static/js/main.90ed5dc8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64666ec7.css",
+    "static/js/main.90ed5dc8.js"
+  ]
+}
