@@ -5,7 +5,7 @@ import styles from '../styles/Answer.module.css';
 export default function Answer({ answer, isLoading }) {
   let inputRefs = useRef([]);
   inputRefs.current = [];
-  const avaiableCharacters = /^[a-zA-Z0-9_.-]*$/;
+  const avaiableCharacters = /^[a-zA-Z0-9]*$/;
   const addRef = el => {
     if (el && !inputRefs.current.includes(el)) {
       inputRefs.current.push(el);
@@ -32,8 +32,6 @@ export default function Answer({ answer, isLoading }) {
     } else if (e.key === 'Backspace') {
       e.target.classList.remove(styles.correct, styles.incorrect);
       e.target.value = '';
-      if (index === 0) return;
-      notDisabledInputs[index - 1].focus();
     } else if (e.key === 'ArrowRight') {
       if (index === notDisabledInputs.length - 1) return;
       notDisabledInputs[index + 1].focus();
