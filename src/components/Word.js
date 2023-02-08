@@ -10,11 +10,9 @@ export default function RandomWord({ translate }) {
   const [targetLanguage, setTargetLanguage] = useState('PL');
   let { data, isLoading, makeFetch } = useFetch();
   const languages = [
-    'BG',
     'CS',
     'DA',
     'DE',
-    'EL',
     'EN',
     'ES',
     'ET',
@@ -23,20 +21,16 @@ export default function RandomWord({ translate }) {
     'HU',
     'ID',
     'IT',
-    'JA',
     'LT',
     'LV',
     'NL',
     'PL',
     'PT',
     'RO',
-    'RU',
     'SK',
     'SL',
     'SV',
     'TR',
-    'UK',
-    'ZH',
   ];
   const handleClick = () => {
     makeFetch('https://api.api-ninjas.com/v1/randomword', {
