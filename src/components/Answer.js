@@ -20,7 +20,22 @@ export default function Answer({ answer, isLoading }) {
       }
     }
   };
+  const revealLetter = () => {
+    if (inputRefs.current.every(input => input.disabled)) {
+      return;
+    }
 
+    while (true) {
+      let randomIndex = Math.floor(Math.random() * inputRefs.current.length);
+      if (!inputRefs.current[randomIndex].disabled === true) {
+        let char = answer.charAt(randomIndex);
+        inputRefs.current[randomIndex].classList.add(styles.correct);
+        inputRefs.current[randomIndex].value = char;
+        inputRefs.current[randomIndex].disabled = true;
+        break;
+      }
+    }
+  };
   const handleInput = e => {
     let notDisabledInputs = inputRefs.current.filter(input => !input.disabled);
     let index = notDisabledInputs.indexOf(e.target);
@@ -77,6 +92,7 @@ export default function Answer({ answer, isLoading }) {
       {answer ? (
         <div className={styles.checkButtonDiv}>
           <button onClick={checkAnswer}>Check</button>
+          <button onClick={revealLetter}>Reveal letter</button>
         </div>
       ) : null}
     </div>
