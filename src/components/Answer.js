@@ -15,6 +15,8 @@ export default function Answer({ answer, isLoading }) {
     for (let i = 0; i < inputRefs.current.length; i++) {
       if (answer.at(i) === inputRefs.current[i].value) {
         inputRefs.current[i].classList.add(styles.correct);
+        inputRefs.current[i].disabled =true;
+
       } else {
         inputRefs.current[i].classList.add(styles.incorrect);
       }
@@ -29,6 +31,7 @@ export default function Answer({ answer, isLoading }) {
       let randomIndex = Math.floor(Math.random() * inputRefs.current.length);
       if (!inputRefs.current[randomIndex].disabled === true) {
         let char = answer.charAt(randomIndex);
+        inputRefs.current[randomIndex].classList.remove(styles.incorrect);
         inputRefs.current[randomIndex].classList.add(styles.correct);
         inputRefs.current[randomIndex].value = char;
         inputRefs.current[randomIndex].disabled = true;
