@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Language-game/static/css/main.64666ec7.css",
-    "main.js": "/Language-game/static/js/main.7479c789.js",
+    "main.js": "/Language-game/static/js/main.4094a0ea.js",
     "index.html": "/Language-game/index.html",
     "main.64666ec7.css.map": "/Language-game/static/css/main.64666ec7.css.map",
-    "main.7479c789.js.map": "/Language-game/static/js/main.7479c789.js.map"
+    "main.4094a0ea.js.map": "/Language-game/static/js/main.4094a0ea.js.map"
   },
   "entrypoints": [
     "static/css/main.64666ec7.css",
-    "static/js/main.7479c789.js"
+    "static/js/main.4094a0ea.js"
   ]
 }
